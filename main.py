@@ -9,7 +9,7 @@ import timedelta
 ALLOWED_LOCATION = (34.1011, 74.8090)  # Example: New York City coordinates
 MAX_DISTANCE_KM = 10.0  # Maximum allowed distance in kilometers
 
-def log_arrival(df, name, date, filename='attendance.xlsx'):
+def log_arrival(df, name, date, filename='https://github.com/loneovais2020/AIIoTS-Intern-Attendance-System/blob/main/attendance.xlsx'):
     if not df[(df['Name'] == name) & (df['Date'] == date)].empty:
         return False, "Arrival already logged for today."
 
@@ -25,7 +25,7 @@ def log_arrival(df, name, date, filename='attendance.xlsx'):
     df.to_excel(filename, index=False)
     return True, "Arrival logged successfully."
 
-def log_leaving(df, name, date, filename='attendance.xlsx'):
+def log_leaving(df, name, date, filename='https://github.com/loneovais2020/AIIoTS-Intern-Attendance-System/blob/main/attendance.xlsx'):
     entries = df[(df['Name'] == name) & (df['Date'] == date)]
     if entries.empty:
         return False, "Arrival not logged for today."
@@ -58,7 +58,7 @@ def log_leaving(df, name, date, filename='attendance.xlsx'):
     df.to_excel(filename, index=False)
     return True, "Leaving time logged successfully."
 
-def load_attendance(filename='attendance.xlsx'):
+def load_attendance(filename='https://github.com/loneovais2020/AIIoTS-Intern-Attendance-System/blob/main/attendance.xlsx'):
     try:
         df = pd.read_excel(filename)
         df['Date'] = pd.to_datetime(df['Date']).dt.date
